@@ -2,6 +2,7 @@
 node_modules
 sitespeed-result
 .history
+dist
 # local env files
 .env.local
 .env.*.local
