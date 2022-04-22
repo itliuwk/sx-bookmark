@@ -29,7 +29,7 @@
             src="./assets/svg/帮助.svg"
             class="tool-icon"
             @click="help"
-            title="帮助"
+            title="帮助说明"
           />
           <span class="login-s" @click="loginClick"
             ><img
