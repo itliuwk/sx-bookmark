@@ -686,7 +686,7 @@ export default {
   position: fixed;
   height: 100%;
   width: 100%;
-  background: url(./assets/bg.jpg);
+  background: url(https://s1.ax1x.com/2022/04/22/LRSqAO.png);
 }
 
 .logo-box-tools {
