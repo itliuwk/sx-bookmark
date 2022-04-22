@@ -4,17 +4,42 @@
     <div class="bookmark" id="bookmark">
       <div class="tool-bar">
         <div class="tool-logo">
-          <a href="" target="_blank"><img src="./assets/svg/logo.svg" title="感谢作者 是半夏鸭 设计的图标" class="tool-icon" />随心书签</a>
+          <a href="" target="_blank"
+            ><img src="./assets/svg/logo.svg" class="tool-icon" />随心书签</a
+          >
         </div>
         <div>
           <div class="search-box">
-            <img src="./assets/svg/search.svg">
-            <input type="text" placeholder="请输入书签名称" v-model="searchVal" />
+            <img src="./assets/svg/search.svg" />
+            <input
+              type="text"
+              placeholder="请输入书签名称"
+              v-model="searchVal"
+            />
           </div>
-          <img src="./assets/svg/add.svg" class="tool-icon" @click="add({},'add')" />
-          <a title="我的博客" href="https://zhanhongzhu.top" target="_blank"><img src="./assets/svg/blog.svg" class="tool-icon" /></a>
-          <a title="在线翻译" href="https://translate.google.cn" target="_blank"><img src="./assets/svg/translate.svg" class="tool-icon" /></a>
-          <span class="login-s" @click="loginClick"><img src="./assets/svg/user.svg" class="tool-icon" title="已登录" /><span class="login-status" :title="userInfo.username">{{userInfo.username.slice(0, 5)}}</span></span>
+          <!-- <img
+            src="./assets/svg/add.svg"
+            class="tool-icon"
+            @click="add({}, 'add')"
+          /> -->
+          <a title="随心博客" href="http://sxitw.cn" target="_blank"
+            ><img src="./assets/svg/blog.svg" class="tool-icon"
+          /></a>
+          <img
+            src="./assets/svg/帮助.svg"
+            class="tool-icon"
+            @click="help"
+            title="帮助"
+          />
+          <span class="login-s" @click="loginClick"
+            ><img
+              src="./assets/svg/user.svg"
+              class="tool-icon"
+              :title="userInfo.username"
+            /><span class="login-status" :title="userInfo.username">{{
+              userInfo.username.slice(0, 5)
+            }}</span></span
+          >
         </div>
         <!-- userInfo.objectId?LoginOut:handleUserLogin -->
       </div>
@@ -22,46 +47,103 @@
       <div class="box-m">
         <div class="left-box">
           <div class="left-box-item">
-            <div class="label" :class="activeIndex===index?'active':'inactive'" v-for="(item,index) in data" :key="index" @click="selectType(item,index)">
+            <div
+              class="label"
+              :class="activeIndex === index ? 'active' : 'inactive'"
+              v-for="(item, index) in data"
+              :key="index"
+              @click="selectType(item, index)"
+            >
               <img src="./assets/svg/file.svg" />
-              <div class="text-elipss"> {{item.type}} </div>
+              <div class="text-elipss">{{ item.type }}</div>
             </div>
           </div>
           <!-- 导入导出 -->
           <div class="import-tool">
             <span class="import-text">导入/导出：&nbsp;</span>
-            <i class="el-icon-upload2" title="导入浏览器书签" @click="importBookmark">
-              <input type="file" ref="filElem" id="file">
+            <i
+              class="el-icon-upload2"
+              title="导入浏览器书签"
+              @click="importBookmark"
+            >
+              <input type="file" ref="filElem" id="file" />
             </i>
-            <i class="el-icon-download" title="导出浏览器书签" @click="exportBookmark"></i>
+            <i
+              class="el-icon-download"
+              title="导出浏览器书签"
+              @click="exportBookmark"
+            ></i>
           </div>
         </div>
         <div class="right-box">
-          <transition-group v-if="bookMark.length" name="staggered-fade" class="card-s" tag="ul" :css="false" @before-enter="beforeEnter" @enter="enter" @leave="leave">
-            <div class="card-item list-complete-item" v-for="(card,idx) in bookMark" :key="idx" @click="navigate(card)">
-              <div class="logo-img"><img :src="card.logo?card.logo:'/img/logo.f38dc2e8.svg'" /></div>
+          <transition-group
+            v-if="bookMark.length"
+            name="staggered-fade"
+            class="card-s"
+            tag="ul"
+            :css="false"
+            @before-enter="beforeEnter"
+            @enter="enter"
+            @leave="leave"
+          >
+            <div
+              class="card-item list-complete-item"
+              v-for="(card, idx) in bookMark"
+              :key="idx"
+              @click="navigate(card)"
+            >
+              <div class="logo-img">
+                <img :src="card.logo ? card.logo : '/img/logo.f38dc2e8.svg'" />
+              </div>
               <div class="logo-box">
                 <span class="logo-box-tools">
-                  <i class="el-icon-edit" @click.stop="add(card,'modify')"></i>
+                  <i class="el-icon-edit" @click.stop="add(card, 'modify')"></i>
                   <i class="el-icon-delete" @click.stop="deleteClick(card)"></i>
                 </span>
-                <span class="title">{{card.title || 'Kestrel-bookmark'}}</span>
-                <span class="subtitle">{{card.desc || "随心书签-为中国 Web 前端开发人员提供优质网站导航"}}</span>
+                <span class="title">{{
+                  card.title || "Kestrel-bookmark"
+                }}</span>
+                <span class="subtitle">{{
+                  card.desc ||
+                  "随心书签-为中国 Web 前端开发人员提供优质网站导航"
+                }}</span>
               </div>
             </div>
           </transition-group>
           <!-- 无数据显示 -->
           <div v-if="!bookMark.length" class="card-item-nodata">
             <div>
-              <svg width="66" height="68" viewBox="0 0 66 68" class="icon empty-icon" data-v-8739e5ce="">
-                <g fill="none" fill-rule="evenodd" transform="translate(4 3)" data-v-8739e5ce="">
+              <svg
+                width="66"
+                height="68"
+                viewBox="0 0 66 68"
+                class="icon empty-icon"
+                data-v-8739e5ce=""
+              >
+                <g
+                  fill="none"
+                  fill-rule="evenodd"
+                  transform="translate(4 3)"
+                  data-v-8739e5ce=""
+                >
                   <g fill="#F7F7F7" data-v-8739e5ce="">
-                    <path d="M9 10h23.751v3.221H9zM9 16.494h41.083v4.026H9zM9 26.104h23.751v3.221H9zM9 42.208h23.751v3.221H9zM9 33.351h41.083v4.026H9zM9 49.455h41.083v4.026H9z" data-v-8739e5ce="">
-                    </path>
+                    <path
+                      d="M9 10h23.751v3.221H9zM9 16.494h41.083v4.026H9zM9 26.104h23.751v3.221H9zM9 42.208h23.751v3.221H9zM9 33.351h41.083v4.026H9zM9 49.455h41.083v4.026H9z"
+                      data-v-8739e5ce=""
+                    ></path>
                   </g>
-                  <rect width="56" height="60" x="1.139" y="1.338" stroke="#EBEBEB" stroke-width="2" rx="6" data-v-8739e5ce=""></rect>
-                </g>
-              </svg><span class="empty-text" data-v-8739e5ce="">暂无数据</span>
+                  <rect
+                    width="56"
+                    height="60"
+                    x="1.139"
+                    y="1.338"
+                    stroke="#EBEBEB"
+                    stroke-width="2"
+                    rx="6"
+                    data-v-8739e5ce=""
+                  ></rect>
+                </g></svg
+              ><span class="empty-text" data-v-8739e5ce="">暂无数据</span>
             </div>
           </div>
         </div>
@@ -69,15 +151,36 @@
     </div>
   </div>
   <!-- 新增/修改弹窗 -->
-  <Dialog class="my-dialog" v-model="isDetailVisible" @closeViews="closeViews" :detail="detail" :selectType="activeIndex" @fresh="search" />
+  <Dialog
+    class="my-dialog"
+    v-model="isDetailVisible"
+    @closeViews="closeViews"
+    :detail="detail"
+    :selectType="activeIndex"
+    @fresh="search"
+  />
   <!-- 登录弹窗 -->
-  <Login v-model="isLoginVisible" @closeViews="closeLoginViews" @setUser="setUsername" />
+  <Login
+    v-model="isLoginVisible"
+    @closeViews="closeLoginViews"
+    @setUser="setUsername"
+  />
+
+  <Help
+    class="my-Help"
+    v-model="isHelpVisible"
+    @closeViews="closeViews"
+    :detail="detail"
+    :selectType="activeIndex"
+    @fresh="search"
+  />
 </template>
 <script>
 import { reactive, toRefs } from '@vue/reactivity'
 import { myData } from './assets/Json/印象笔记.js'
 import { watch } from '@vue/runtime-core'
 import Dialog from './components/Dialog.vue'
+import Help from './components/Help.vue'
 import Login from './components/Login.vue'
 import gsap from 'gsap'
 import { ElMessage, ElMessageBox } from 'element-plus'
@@ -87,7 +190,7 @@ import Cookie from 'js-cookie'
 import Api from './Api/user.js'
 var rowData = []
 export default {
-  components: { Dialog, Login },
+  components: { Dialog, Login, Help },
   name: 'kestrel-bookmark',
   setup() {
     // 扁平化数组
@@ -107,6 +210,7 @@ export default {
       searchVal: '',
       allData: [],
       isDetailVisible: false,
+      isHelpVisible: false,
       isLoginVisible: false,
       detail: {},
       userInfo: {
@@ -187,6 +291,10 @@ export default {
     // 书签跳转
     const navigate = (v) => window.open(v.url, '_target')
 
+    function help() {
+      data.isHelpVisible = true
+    }
+
     // 新增书签
     function add(row = {}, flag = 'add') {
       const temp = { ...row }
@@ -210,7 +318,8 @@ export default {
     }
 
     // 关闭弹窗事件
-    const closeViews = (v) => (data.isDetailVisible = v)
+    const closeViews = (v) =>
+      (data.isDetailVisible = v)((data.isHelpVisible = v))
     const closeLoginViews = (v) => (data.isLoginVisible = v)
 
     // 获取书签分类数据
@@ -283,7 +392,7 @@ export default {
           }
         })
       } else {
-        ElMessage.warning('请先登录')
+        ElMessage.warning('请先登录，或者点击未登录旁的帮助说明')
       }
     }
 
@@ -301,6 +410,7 @@ export default {
       selectType,
       navigate,
       add,
+      help,
       closeViews,
       closeLoginViews,
       search,
@@ -438,7 +548,7 @@ export default {
   margin-right: 12px;
   cursor: pointer;
   &:hover {
-    fill: '#3eaf7c';
+    fill: "#3eaf7c";
   }
 }
 .tool-bar {
