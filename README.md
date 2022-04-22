@@ -1,7 +1,6 @@
 ---
 theme: v-green
 ---
-# Part1用Vue3.0 开发一款导入浏览器书签的在线书签
 
 
 👉👉👉【随心书签】是一款简洁的在线书签导航网站。
@@ -36,22 +35,10 @@ theme: v-green
 
 ========⚡⚡⚡ [随心书签](http://bookmark.sxitw.cn/) **注意：👉本项目会持续新增功能，但持续维护。如使用中发现问题，请留言或者提交 issue 。谢谢！！！**
 
-## 📚安装步骤
-
--   1.克隆项目 https://gitee.com/zhanhongzhu/kestrel-bookmark.git
--   2.进入项目目录 `npm install`
--   3.启动项目`npm run serve`
--   4.打开浏览器即可 localhost:8080 就可以看到界面啦；
--   5.打包命令 `npm run build`
-
 ## 🚀 效果
 
 ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/52b83ea3177f420bb289a94e66bdb3dd~tplv-k3u1fbpfcp-zoom-1.image) ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3e0df0adde3f4848a4fe3060ea03efc6~tplv-k3u1fbpfcp-zoom-1.image) ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/db6a1a9ab3134001a81beea4b885f59e~tplv-k3u1fbpfcp-zoom-1.image) ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/663750e8531d4b77a186519f0bfa5bba~tplv-k3u1fbpfcp-zoom-1.image) ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/a7ee5b5dd4b045dbab8cfeb787aa3834~tplv-k3u1fbpfcp-zoom-1.image) ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eee207a04c234bbb838946eedfd00d6e~tplv-k3u1fbpfcp-zoom-1.image) ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b0b67d480b5c4e43b5646cdc8dbc040a~tplv-k3u1fbpfcp-zoom-1.image) ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eeef8b79fa28404c9021052945fae4f3~tplv-k3u1fbpfcp-zoom-1.image) ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ef3c0e9215614a9389e1e6d4e1350dbe~tplv-k3u1fbpfcp-zoom-1.image)
 
-#### 😄 源码地址
-
-完全开源，大家可以随意研究，二次开发。当然还是十分欢迎大家点个Star⭐⭐⭐\
-👉👉[源码链接(gitee)](https://gitee.com/zhanhongzhu/kestrel-bookmark)       👉👉[源码链接(github)](https://github.com/zhanhongzhu/kestrel-bookmark)
 
 ## 项目结构
 
@@ -183,8 +170,6 @@ const importBookmark = () => {
 
 其实这部分我已经进行了简单的函数封装，用起来是很方便的，还有很多用法可以参考[leancloud文档](https://leancloud.cn/docs/leanstorage_guide-dotnet.html),具体用法是非常详细的。
 
-其实使用下面几个封装的函数，基本就可以实现一个系统的增删改查了，还是非常快速方便的。数据以JSON数据格式进行存储。
-
 ![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6b0dc9ebbb4a461f9c7a0617819517a5~tplv-k3u1fbpfcp-zoom-1.image)
 
 ### 😄4.1 对象存储公共函数（传入表名和存储的数据）
@@ -267,20 +252,5 @@ export const updateObject = (className, params) => {
 }
 ```
 
-📖📖📖其他的好像都挺简单的，哈哈哈 ，目前也还在学习Vue3.0,经常看到很多大佬的文章，比如 [若川](https://juejin.cn/user/1415826704971918)，[杨俊宁](https://juejin.cn/user/325111174662855)，[chokcoco](https://juejin.cn/user/2330620350437678) 等大佬，继续向他们学习，加油，做一个终身学习者。
 
-需要什么新的需求或者设计，可以给我提[issue](https://gitee.com/zhanhongzhu/kestrel-bookmark/issues),感谢，喜欢的也可以点个赞。
-
-## 💯 致谢
-
-第一次做一个开源的东西，只想把这个小项目做好，感谢 【空白i】 的打赏 【66.6】，太激动啦；继续加油，希望可以做出更多更精致开源的作品处理。继续加油。😀 😀 😀
-
-## 😀 其他链接
-
--   [我的博客(收集各类大神的学习笔记及官方文档，强烈推荐)](https:/zhanhongzhu.top)
--   [随心书签](http://bookmark.zhanhongzhu.top)
--   [掘金](https://juejin.im/user/5cc6757ce51d456e5238ca23)
--   [思否](https://segmentfault.com/u/huixiaodeyanjingzhenmei)
--   [CSDN](https://blog.csdn.net/weixin_43779957)
--   [简书](https://www.jianshu.com/u/b8d251f62b08)
--   [语雀(超过430多篇开发笔记)](https://www.yuque.com/zhanhongzhu)
+# Fork:  https://github.com/zhanhongzhu/kestrel-bookmark
