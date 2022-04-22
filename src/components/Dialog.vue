@@ -1,32 +1,66 @@
 <template>
-  <el-dialog custom-class="my-dialog" title="新增书签" :visible="isDetailVisible" width="758px">
-    <el-form status-icon ref="refruleForm" :rules="rules" :model="ruleForm" label-width="100px" size="small">
+  <el-dialog
+    custom-class="my-dialog"
+    title="新增书签"
+    :visible="isDetailVisible"
+    width="758px"
+  >
+    <el-form
+      status-icon
+      ref="refruleForm"
+      :rules="rules"
+      :model="ruleForm"
+      label-width="100px"
+      size="small"
+    >
       <el-row :gutter="20">
         <el-col :span="12">
           <el-form-item label="书签名称" prop="title">
-            <el-input v-model="ruleForm.title" placeholder="请输入书签名称"></el-input>
+            <el-input
+              v-model="ruleForm.title"
+              placeholder="请输入书签名称"
+            ></el-input>
           </el-form-item>
         </el-col>
         <el-col :span="12">
           <el-form-item label="书签类别" prop="type">
-            <el-select v-model="ruleForm.type" placeholder="请选择书签类别" style="width:100%">
-              <el-option v-for="(item,index) in BOOKMARK" :value="item" :key="index"></el-option>
+            <el-select
+              v-model="ruleForm.type"
+              placeholder="请选择书签类别"
+              style="width: 100%"
+            >
+              <el-option
+                v-for="(item, index) in BOOKMARK"
+                :value="item"
+                :key="index"
+              ></el-option>
             </el-select>
           </el-form-item>
         </el-col>
         <el-col :span="24">
           <el-form-item label="LOGO地址" prop="logo">
-            <el-input v-model="ruleForm.logo" placeholder="请输入LOGO地址"></el-input>
+            <el-input
+              v-model="ruleForm.logo"
+              placeholder="请输入LOGO地址"
+            ></el-input>
           </el-form-item>
         </el-col>
         <el-col :span="24">
           <el-form-item label="访问地址" prop="url">
-            <el-input v-model="ruleForm.url" placeholder="请输入访问绝对地址"></el-input>
+            <el-input
+              v-model="ruleForm.url"
+              placeholder="请输入访问绝对地址"
+            ></el-input>
           </el-form-item>
         </el-col>
         <el-col :span="24">
           <el-form-item label="书签描述" prop="desc">
-            <el-input type="textarea" clearable placeholder="请输入书签描述" v-model="ruleForm.desc" />
+            <el-input
+              type="textarea"
+              clearable
+              placeholder="请输入书签描述"
+              v-model="ruleForm.desc"
+            />
           </el-form-item>
         </el-col>
       </el-row>
@@ -34,7 +68,9 @@
     <template #footer>
       <span class="dialog-footer">
         <el-button @click="closeViews" size="small">取 消</el-button>
-        <el-button type="primary" @click="submitForm" size="small">确 定</el-button>
+        <el-button type="primary" @click="submitForm" size="small"
+          >确 定</el-button
+        >
       </span>
     </template>
   </el-dialog>
@@ -46,21 +82,21 @@ import { ElMessage } from 'element-plus'
 export default {
   model: {
     value: 'isDetailVisible',
-    events: 'closeViews',
+    events: 'closeViews'
   },
   props: {
     isDetailVisible: {
       type: Boolean,
-      default: false,
+      default: false
     },
     selectType: {
       type: Number,
-      default: 0,
+      default: 0
     },
     detail: {
       type: Object,
-      default: () => {},
-    },
+      default: () => {}
+    }
   },
   setup(props, context) {
     const isBOOKMARK = JSON.parse(localStorage.getItem('BOOKMARK'))
@@ -71,13 +107,13 @@ export default {
         type: '',
         desc: '',
         url: '',
-        logo: '',
-      },
+        logo: ''
+      }
     })
     // 定义校验规则 表单代码中必须以 :rules 接收
     const rules = {
       title: [{ required: true, message: '请输入书签名称', trigger: 'blur' }],
-      type: [{ required: true, message: '请选择书签类别', trigger: 'change' }],
+      type: [{ required: true, message: '请选择书签类别', trigger: 'change' }]
     }
     const refruleForm = ref(null)
     // 确定按钮的格式
@@ -150,10 +186,10 @@ export default {
       submitForm,
       refruleForm,
       rules,
-      BOOKMARK,
+      BOOKMARK
     }
   },
-  methods: {},
+  methods: {}
 }
 </script>
 

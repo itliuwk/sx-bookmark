@@ -4,7 +4,7 @@
     <div class="bookmark" id="bookmark">
       <div class="tool-bar">
         <div class="tool-logo">
-          <a href="" target="_blank"><img src="./assets/svg/logo.svg" title="感谢作者 是半夏鸭 设计的图标" class="tool-icon" />红隼书签</a>
+          <a href="" target="_blank"><img src="./assets/svg/logo.svg" title="感谢作者 是半夏鸭 设计的图标" class="tool-icon" />随心书签</a>
         </div>
         <div>
           <div class="search-box">
@@ -46,7 +46,7 @@
                   <i class="el-icon-delete" @click.stop="deleteClick(card)"></i>
                 </span>
                 <span class="title">{{card.title || 'Kestrel-bookmark'}}</span>
-                <span class="subtitle">{{card.desc || "红隼书签-为中国 Web 前端开发人员提供优质网站导航"}}</span>
+                <span class="subtitle">{{card.desc || "随心书签-为中国 Web 前端开发人员提供优质网站导航"}}</span>
               </div>
             </div>
           </transition-group>
